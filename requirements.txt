@@ -1,0 +1,2 @@
+akshare==1.11.89
+tornado==6.4

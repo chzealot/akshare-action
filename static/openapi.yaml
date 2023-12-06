@@ -1,0 +1,50 @@
+openapi: 3.0.1
+x-keywords:
+  - 新闻
+  - 财经
+  - 股票
+info:
+  title: 财经服务
+  description: 查看股票、查看新闻
+  version: 1.0.0
+servers:
+  - url: 'https://akshare.kejie.fun'
+paths:
+  '/profile/{unionId}':
+    get:
+      operationId: GetNewsCctv
+      summary: 查看新闻联播
+      x-examples:
+        - input: 查看今天新闻
+          output:
+            date: 20231203
+      parameters:
+        - in: query
+          name: date
+          schema:
+            type: string
+          required: true
+          description: 需要查看的日期，格式为：yyyyMMdd，例如 20231203
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetNewsCctv'
+components:
+  schemas:
+    GetNewsCctv:
+      type: array
+      items:
+        type: object
+        properties:
+          date:
+            type: string
+            description: 需要查看的日期，格式为：yyyyMMdd，例如 20231203
+          title:
+            type: string
+            description: 新闻标题
+          content:
+            type: string
+            description: 新闻内容正文
