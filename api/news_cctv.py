@@ -23,6 +23,9 @@ class NewsCctvHandler(tornado.web.RequestHandler):
         api_key = self.request.headers.get('x-api-key')
         if api_key == PASSWORD:
             return True
+        api_key = self.get_argument('password', '')
+        if api_key == PASSWORD:
+            return True
         auth_header = self.request.headers.get('Authorization')
         if not auth_header:
             return False
