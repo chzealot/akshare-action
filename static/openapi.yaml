@@ -8,9 +8,9 @@ info:
   description: 查看股票、查看新闻
   version: 1.0.0
 servers:
-  - url: 'https://akshare.kejie.fun'
+  - url: 'https://news-cctv.kejie.fun'
 paths:
-  '/profile/{unionId}':
+  '/api/news_cctv':
     get:
       operationId: GetNewsCctv
       summary: 查看新闻联播
